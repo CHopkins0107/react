@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Container, SimpleGrid } from '@mantine/core'
 import './App.css'
 
 import { HeroText } from './components/HeroText'
 import { HeaderSimple } from './components/HeaderSimple'
+import { BadgeCard } from './components/BadgeCard'
 
 
 
@@ -18,5 +18,13 @@ export default function App() {
   return <MantineProvider>
     <HeaderSimple />
     <HeroText/>
+    <Container>
+      <SimpleGrid cols={3}>
+        <BadgeCard></BadgeCard>
+        <BadgeCard></BadgeCard>
+        <BadgeCard></BadgeCard>
+        <BadgeCard></BadgeCard>
+      </SimpleGrid>
+    </Container>
   </MantineProvider>;
 }
