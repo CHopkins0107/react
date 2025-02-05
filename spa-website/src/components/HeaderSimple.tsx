@@ -1,42 +1,38 @@
-import { useState } from 'react';
-import { Burger, Container, Group } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
+import { Button, Container, Group } from '@mantine/core';
+import TerminalIcon from '@mui/icons-material/Terminal';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import classes from './HeaderSimple.module.css';
 
 const links = [
-  { link: '/about', label: 'Features' },
-  { link: '/pricing', label: 'Pricing' },
-  { link: '/learn', label: 'Learn' },
-  { link: '/community', label: 'Community' },
+  { link: 'https://github.com/CHopkins0107/', label: 'GitHub',  icon: <GitHubIcon />},
+  { link: 'https://www.linkedin.com/in/jamelhopkins/', label: 'LinkedIn', icon: <LinkedInIcon /> },
 ];
 
 export function HeaderSimple() {
-  const [opened, { toggle }] = useDisclosure(false);
-  const [active, setActive] = useState(links[0].link);
 
   const items = links.map((link) => (
-    <a
+    <Button
       key={link.label}
+      component="a"
       href={link.link}
+      target="_blank"
+      variant="default"
       className={classes.link}
-      data-active={active === link.link || undefined}
-      onClick={(event) => {
-        event.preventDefault();
-        setActive(link.link);
-      }}
+      leftSection={link.icon}
     >
       {link.label}
-    </a>
+    </Button>
   ));
 
   return (
     <header className={classes.header}>
-      <Container size="md" className={classes.inner}>
+      <Container size="lg" className={classes.inner}>
+        <TerminalIcon />
         <Group gap={5} visibleFrom="xs">
           {items}
         </Group>
 
-        <Burger opened={opened} onClick={toggle} hiddenFrom="xs" size="sm" />
       </Container>
     </header>
   );

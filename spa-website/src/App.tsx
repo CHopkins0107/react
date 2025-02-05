@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-import { HeroContentLeft } from './components/HeroContentLeft'
+import { HeroText } from './components/HeroText'
 import { HeaderSimple } from './components/HeaderSimple'
 
 
@@ -12,11 +12,11 @@ import { HeaderSimple } from './components/HeaderSimple'
 // All packages except `@mantine/hooks` require styles imports
 import '@mantine/core/styles.css';
 
-import { MantineProvider } from '@mantine/core';
+import { createTheme, MantineProvider } from '@mantine/core';
 
 export default function App() {
   return <MantineProvider>
-    <HeaderSimple></HeaderSimple>
-    <HeroContentLeft></HeroContentLeft>
+    <HeaderSimple />
+    <HeroText/>
   </MantineProvider>;
 }
